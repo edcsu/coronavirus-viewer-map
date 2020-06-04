@@ -3,7 +3,7 @@ import { Helmet } from 'react-helmet';
 import L from 'leaflet';
 
 import Layout from 'components/Layout';
-import Container from 'components/Container';
+// import Container from 'components/Container';
 import Map from 'components/Map';
 
 import axios from 'axios';
@@ -124,7 +124,7 @@ const IndexPage = () => {
       </Helmet>
 
       <Map {...mapSettings} />
-
+{/* 
       <Container type="content" className="text-center home-start">
         <h2>Still Getting Started?</h2>
         <p>Run the following in your terminal!</p>
@@ -132,7 +132,7 @@ const IndexPage = () => {
           <code>gatsby new [directory] https://github.com/colbyfayock/gatsby-starter-leaflet</code>
         </pre>
         <p className="note">Note: Gatsby CLI required globally for the above command</p>
-      </Container>
+      </Container> */}
     </Layout>
   );
 };
