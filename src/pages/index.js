@@ -55,7 +55,6 @@ const IndexPage = () => {
         }
       })
     }
-    console.log(geoJson)
 
     const geoJsonLayers = new L.GeoJSON(geoJson, {
       pointToLayer: (feature = {}, latlng) => {
