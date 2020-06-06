@@ -1,12 +1,15 @@
 import React from 'react';
-// import { Link } from 'gatsby';
+// import CovidImage from 'assets/images/covidvirus.svg';
 
+// import { Link } from 'gatsby';
 import Container from 'components/Container';
 
 const Header = () => {
+
   return (
     <header>
       <Container type="content">
+        {/* <img src={CovidImage} alt="covid virus"></img> */}
         <p>Global COVID19 Tracker</p>
         {/* <ul>
           <li>
