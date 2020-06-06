@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import favicon from 'assets/images/favicon.ico'
 import { Helmet } from 'react-helmet';
 
 import 'assets/stylesheets/application.scss';
@@ -17,7 +18,8 @@ const Layout = ({ children, pageName }) => {
   return (
     <>
       <Helmet bodyAttributes={{ class: className }}>
-        <title>Gatsby Site</title>
+        <title>Global COVID19 Tracker</title>
+        <link rel="icon" href={favicon} />
       </Helmet>
       <div className="wrapper">
         <Header />
