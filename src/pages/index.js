@@ -202,7 +202,7 @@ const IndexPage = () => {
   return (
     <Layout pageName="home" lastUpdated={stats?.updated}>
       <Helmet>
-        <title>Home Page</title>
+        <title>Global Data</title>
       </Helmet>
       <div className="tracker">
         <div className="tracker-stats">
@@ -226,6 +226,12 @@ const IndexPage = () => {
               );
             })}
           </ul>
+          <p className="tracker-message">
+            Data is from NovelCOVID API. <br></br> 
+            Johns Hopkins University <br></br> 
+            has complete analysis.<br></br>
+            <strong>#STAYHOME#STAYSAFE</strong>
+          </p>
         </div>
         <Map {...mapSettings} />
         <div className="tracker-stats">
@@ -250,11 +256,6 @@ const IndexPage = () => {
           </ul>
         </div>
       </div>
-      {/* <div className="tracker-last-updated">
-            <p>
-              <strong>Last Updated: </strong> { stats ? friendlyDate(stats?.updated) : '-' }
-            </p>
-          </div> */}
     </Layout>
   );
 };

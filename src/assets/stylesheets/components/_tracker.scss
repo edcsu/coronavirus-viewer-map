@@ -1,5 +1,5 @@
 .tracker {
-    display: flex;
+  display: flex;
 }
 .tracker-stats {
 
@@ -65,3 +65,21 @@
       }
     }
   }
+
+  .tracker-message {
+    font-size: 0.8em;
+    padding-right: 5px;
+    padding-left: 5px;
+    white-space: nowrap;
+    strong {
+      margin-top: 1.5em;
+    }
+  }
+  
+
+  @media screen 
+  and (max-width: 768px)  { 
+  .tracker-stats {
+    display: none;
+  }
+}
