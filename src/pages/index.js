@@ -2,6 +2,7 @@ import React from 'react';
 import { Helmet } from 'react-helmet';
 import L from 'leaflet';
 import { useTracker } from 'hooks';
+import { thousandSeperator } from 'lib/util';
 
 import Layout from 'components/Layout';
 // import Container from 'components/Container';
@@ -32,47 +33,47 @@ const IndexPage = () => {
     {
       primary: {
         label: 'Total Cases',
-        value: stats?.cases
+        value: stats ? thousandSeperator(stats?.cases) : '-'
       },
       secondary: {
         label: 'Per 1 Million',
-        value: stats?.casesPerOneMillion
+        value: stats ? thousandSeperator(stats?.casesPerOneMillion) : '-'
       }
     },
     {
       primary: {
         label: 'Total Deaths',
-        value: stats?.deaths
+        value: stats ? thousandSeperator(stats?.deaths) : '-'
       },
       secondary: {
         label: 'Per 1 Million',
-        value: stats?.deathsPerOneMillion
+        value: stats ? thousandSeperator(stats?.deathsPerOneMillion) : '-'
       }
     },
     {
       primary: {
         label: 'Total Active',
-        value: stats?.active
+        value: stats ? thousandSeperator(stats?.active) : '-'
       },
       secondary: {
         label: 'Per 1 Million',
-        value: stats?.activePerOneMillion
+        value: stats ? thousandSeperator(stats?.activePerOneMillion) : '-'
       }
     },
     {
       primary: {
         label: 'Total Critical',
-        value: stats?.critical
+        value: stats ? thousandSeperator(stats?.critical) : '-'
       },
       secondary: {
         label: 'Per 1 Million',
-        value: stats?.criticalPerOneMillion
+        value: stats ? thousandSeperator(stats?.criticalPerOneMillion) : '-'
       }
     },
     {
       primary: {
         label: 'Total Population',
-        value: stats?.population
+        value: stats ? thousandSeperator(stats?.population) : '-'
       }
     }
   ]
@@ -81,39 +82,39 @@ const IndexPage = () => {
     {
       primary: {
         label: 'Cases Today',
-        value: stats?.todayCases
+        value: stats ? thousandSeperator(stats?.todayCases) : '-'
       }
     },
     {
       primary: {
         label: 'Recovered Today',
-        value: stats?.todayRecovered
+        value: stats ? thousandSeperator(stats?.todayRecovered) : '-'
       }
     },
     {
       primary: {
         label: 'Deaths Today',
-        value: stats?.todayDeaths
+        value: stats ? thousandSeperator(stats?.todayDeaths) : '-'
       }
     },
     {
       primary: {
         label: 'Total Recovered',
-        value: stats?.recovered
+        value: stats ? thousandSeperator(stats?.recovered) : '-'
       },
       secondary: {
         label: 'Per 1 Million',
-        value: stats?.recoveredPerOneMillion
+        value: stats ? thousandSeperator(stats?.recoveredPerOneMillion) : '-'
       }
     },
     {
       primary: {
         label: 'Total Tests',
-        value: stats?.tests
+        value: stats ? thousandSeperator(stats?.tests) : '-'
       },
       secondary: {
         label: 'Per 1 Million',
-        value: stats?.testsPerOneMillion
+        value: stats ? thousandSeperator(stats?.testsPerOneMillion) : '-'
       }
     },
     {
