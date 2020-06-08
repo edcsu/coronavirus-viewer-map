@@ -1,12 +1,16 @@
 import React from 'react';
+import { friendlyDate } from 'lib/util';
 
 import Container from 'components/Container';
 
-const Footer = () => {
+const Footer = ({lastUpdated}) => {
   return (
     <footer>
       <Container>
-        <p>&copy; { new Date().getFullYear() }, Global COVID19 Tracker </p>
+        <p>
+          <strong>Last Updated: </strong> { lastUpdated ? friendlyDate(lastUpdated) : '-' }
+          <span> &copy; { new Date().getFullYear() }. </span>
+        </p>
       </Container>
     </footer>
   );

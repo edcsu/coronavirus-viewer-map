@@ -8,7 +8,7 @@ import 'assets/stylesheets/application.scss';
 import Header from 'components/Header';
 import Footer from 'components/Footer';
 
-const Layout = ({ children, pageName }) => {
+const Layout = ({ children, pageName, lastUpdated}) => {
   let className = '';
 
   if ( pageName ) {
@@ -24,7 +24,7 @@ const Layout = ({ children, pageName }) => {
       <div className="wrapper">
         <Header />
         <main>{ children }</main>
-        <Footer />
+        <Footer lastUpdated={lastUpdated} />
       </div>
     </>
   );

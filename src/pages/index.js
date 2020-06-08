@@ -2,7 +2,7 @@ import React from 'react';
 import { Helmet } from 'react-helmet';
 import L from 'leaflet';
 import { useTracker } from 'hooks';
-import { thousandSeperator } from 'lib/util';
+import { friendlyDate, thousandSeperator } from 'lib/util';
 
 import Layout from 'components/Layout';
 // import Container from 'components/Container';
@@ -24,8 +24,6 @@ const IndexPage = () => {
   const { data: stats = {} } = useTracker({
     api: 'all'
   });
-
-  console.log('stats', stats);
 
   const hasCountries = Array.isArray(countries) && countries.length > 0;
   
@@ -69,12 +67,6 @@ const IndexPage = () => {
         label: 'Per 1 Million',
         value: stats ? thousandSeperator(stats?.criticalPerOneMillion) : '-'
       }
-    },
-    {
-      primary: {
-        label: 'Total Population',
-        value: stats ? thousandSeperator(stats?.population) : '-'
-      }
     }
   ]
   
@@ -115,12 +107,6 @@ const IndexPage = () => {
       secondary: {
         label: 'Per 1 Million',
         value: stats ? thousandSeperator(stats?.testsPerOneMillion) : '-'
-      }
-    },
-    {
-      primary: {
-        label: 'Last Updated',
-        value: stats?.updated
       }
     }
   ]
@@ -214,7 +200,7 @@ const IndexPage = () => {
   };
 
   return (
-    <Layout pageName="home">
+    <Layout pageName="home" lastUpdated={stats?.updated}>
       <Helmet>
         <title>Home Page</title>
       </Helmet>
@@ -264,6 +250,11 @@ const IndexPage = () => {
           </ul>
         </div>
       </div>
+      {/* <div className="tracker-last-updated">
+            <p>
+              <strong>Last Updated: </strong> { stats ? friendlyDate(stats?.updated) : '-' }
+            </p>
+          </div> */}
     </Layout>
   );
 };

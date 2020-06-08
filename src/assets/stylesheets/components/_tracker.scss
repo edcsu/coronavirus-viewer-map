@@ -52,3 +52,16 @@
     }
   
   }
+  
+  .tracker-last-updated {
+  
+    p { 
+      font-size: 0.8em;
+      margin: .8em 0 0;
+      font-style: italic;
+      strong {
+        font-size: 0.6em;
+        margin-left: .4em;
+      }
+    }
+  }

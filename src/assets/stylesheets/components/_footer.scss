@@ -6,10 +6,13 @@ footer {
   color: $white;
   text-align: center;
   background-color: $gatsby-purple;
-
+  
   p {
     font-size: 1em;
     margin: 0;
+    span {
+      margin-left: 0.5em;
+    }
   }
 
 }
