@@ -168,9 +168,9 @@ const IndexPage = () => {
             <span class="icon-marker-tooltip">
               <h2>${country}</h2>
               <ul>
-                <li><strong>Confirmed:</strong> ${cases}</li>
-                <li><strong>Deaths:</strong> ${deaths}</li>
-                <li><strong>Recovered:</strong> ${recovered}</li>
+                <li><strong>Confirmed:</strong> ${cases ? thousandSeperator(cases) : 0}</li>
+                <li><strong>Deaths:</strong> ${deaths ? thousandSeperator(deaths) : 0}</li>
+                <li><strong>Recovered:</strong> ${recovered ? thousandSeperator(recovered) : 0}</li>
                 <li><strong>Last Update:</strong> ${updatedFormatted}</li>
               </ul>
             </span>
