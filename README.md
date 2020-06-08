@@ -3,6 +3,9 @@
 Jumpstart your next Gatsby mapping project with Leaflet!
 
 ## ⚡ Quick Deploy
+[Live demo]( https://covid19globaltracker.web.app)
+
+## ⚡ Quick Deploy
 [![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/colbyfayock/gatsby-starter-leaflet) [![Deploy with ZEIT Now](https://zeit.co/button)](https://zeit.co/import/project?template=https://github.com/colbyfayock/gatsby-starter-leaflet)
 
 
