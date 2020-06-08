@@ -2,7 +2,7 @@ import React from 'react';
 import { Helmet } from 'react-helmet';
 import L from 'leaflet';
 import { useTracker } from 'hooks';
-import { friendlyDate, thousandSeperator } from 'lib/util';
+import { thousandSeperator } from 'lib/util';
 
 import Layout from 'components/Layout';
 // import Container from 'components/Container';
@@ -206,6 +206,7 @@ const IndexPage = () => {
       </Helmet>
       <div className="tracker">
         <div className="tracker-stats">
+          <h2>Brief Global stats</h2>
           <ul>
             { dashboardTotalStats.map(({ primary = {}, secondary = {} }, i) => {
               return (
@@ -226,15 +227,10 @@ const IndexPage = () => {
               );
             })}
           </ul>
-          <p className="tracker-message">
-            Data is from NovelCOVID API. <br></br> 
-            Johns Hopkins University <br></br> 
-            has complete analysis.<br></br>
-            <strong>#STAYHOME#STAYSAFE</strong>
-          </p>
         </div>
         <Map {...mapSettings} />
         <div className="tracker-stats">
+          <h2>Brief Global stats</h2>
           <ul>
             { dashboardTodayStats.map(({ primary = {}, secondary = {} }, i) => {
               return (

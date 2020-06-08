@@ -1,5 +1,10 @@
 .tracker {
   display: flex;
+  h2 {
+    margin-top: 0.1em;
+    text-align: center;
+    border-bottom: solid 1px darken($blue-grey-900, 5);
+  }
 }
 .tracker-stats {
 
