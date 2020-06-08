@@ -15,6 +15,7 @@ const CENTER = [LOCATION.lat, LOCATION.lng];
 const DEFAULT_ZOOM = 2;
 
 const IndexPage = () => {
+
   const { data: countries = [] } = useTracker({
     api: 'countries'
   });
@@ -27,6 +28,102 @@ const IndexPage = () => {
 
   const hasCountries = Array.isArray(countries) && countries.length > 0;
   
+  const dashboardTotalStats = [
+    {
+      primary: {
+        label: 'Total Cases',
+        value: stats?.cases
+      },
+      secondary: {
+        label: 'Per 1 Million',
+        value: stats?.casesPerOneMillion
+      }
+    },
+    {
+      primary: {
+        label: 'Total Deaths',
+        value: stats?.deaths
+      },
+      secondary: {
+        label: 'Per 1 Million',
+        value: stats?.deathsPerOneMillion
+      }
+    },
+    {
+      primary: {
+        label: 'Total Active',
+        value: stats?.active
+      },
+      secondary: {
+        label: 'Per 1 Million',
+        value: stats?.activePerOneMillion
+      }
+    },
+    {
+      primary: {
+        label: 'Total Critical',
+        value: stats?.critical
+      },
+      secondary: {
+        label: 'Per 1 Million',
+        value: stats?.criticalPerOneMillion
+      }
+    },
+    {
+      primary: {
+        label: 'Total Population',
+        value: stats?.population
+      }
+    }
+  ]
+  
+  const dashboardTodayStats = [
+    {
+      primary: {
+        label: 'Cases Today',
+        value: stats?.todayCases
+      }
+    },
+    {
+      primary: {
+        label: 'Recovered Today',
+        value: stats?.todayRecovered
+      }
+    },
+    {
+      primary: {
+        label: 'Deaths Today',
+        value: stats?.todayDeaths
+      }
+    },
+    {
+      primary: {
+        label: 'Total Recovered',
+        value: stats?.recovered
+      },
+      secondary: {
+        label: 'Per 1 Million',
+        value: stats?.recoveredPerOneMillion
+      }
+    },
+    {
+      primary: {
+        label: 'Total Tests',
+        value: stats?.tests
+      },
+      secondary: {
+        label: 'Per 1 Million',
+        value: stats?.testsPerOneMillion
+      }
+    },
+    {
+      primary: {
+        label: 'Last Updated',
+        value: stats?.updated
+      }
+    }
+  ]
+
   /**
    * mapEffect
    * @description Fires a callback once the page renders
@@ -120,17 +217,52 @@ const IndexPage = () => {
       <Helmet>
         <title>Home Page</title>
       </Helmet>
-
-      <Map {...mapSettings} />
-{/* 
-      <Container type="content" className="text-center home-start">
-        <h2>Still Getting Started?</h2>
-        <p>Run the following in your terminal!</p>
-        <pre>
-          <code>gatsby new [directory] https://github.com/colbyfayock/gatsby-starter-leaflet</code>
-        </pre>
-        <p className="note">Note: Gatsby CLI required globally for the above command</p>
-      </Container> */}
+      <div className="tracker">
+        <div className="tracker-stats">
+          <ul>
+            { dashboardTotalStats.map(({ primary = {}, secondary = {} }, i) => {
+              return (
+                <li key={`Stat-${i}`} className="tracker-stat">
+                  { primary.value && (
+                    <p className="tracker-stat-primary">
+                      { primary.value }
+                      <strong>{ primary.label }</strong>
+                    </p>
+                  )}
+                  { secondary.value && (
+                    <p className="tracker-stat-secondary">
+                      { secondary.value }
+                      <strong>{ secondary.label }</strong>
+                    </p>
+                  )}
+                </li>
+              );
+            })}
+          </ul>
+        </div>
+        <Map {...mapSettings} />
+        <div className="tracker-stats">
+          <ul>
+            { dashboardTodayStats.map(({ primary = {}, secondary = {} }, i) => {
+              return (
+                <li key={`Stat-${i}`} className="tracker-stat">
+                  { primary.value && (
+                    <p className="tracker-stat-primary">
+                      { primary.value }
+                      <strong>{ primary.label }</strong>
+                    </p>
+                  )}{ secondary.value && (
+                    <p className="tracker-stat-secondary">
+                      { secondary.value }
+                      <strong>{ secondary.label }</strong>
+                    </p>
+                  )}
+                </li>
+              );
+            })}
+          </ul>
+        </div>
+      </div>
     </Layout>
   );
 };
