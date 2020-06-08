@@ -1,12 +1,11 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
 import L from 'leaflet';
+import { useTracker } from 'hooks';
 
 import Layout from 'components/Layout';
 // import Container from 'components/Container';
 import Map from 'components/Map';
-
-import axios from 'axios';
 
 const LOCATION = {
   lat: 0,
@@ -16,7 +15,18 @@ const CENTER = [LOCATION.lat, LOCATION.lng];
 const DEFAULT_ZOOM = 2;
 
 const IndexPage = () => {
+  const { data: countries = [] } = useTracker({
+    api: 'countries'
+  });
+  
+  const { data: stats = {} } = useTracker({
+    api: 'all'
+  });
 
+  console.log('stats', stats);
+
+  const hasCountries = Array.isArray(countries) && countries.length > 0;
+  
   /**
    * mapEffect
    * @description Fires a callback once the page renders
@@ -24,23 +34,12 @@ const IndexPage = () => {
    */
 
   async function mapEffect({ leafletElement: map} = {}) {
-    let response;
 
-    try {
-      response = await axios.get('https://corona.lmao.ninja/v2/countries');
-    } catch(e) {
-      console.log(`Failed to fetch countries: ${e.message}`, e);
-      return;
-    }
-
-    const { data = [] } = response;
-    const hasData = Array.isArray(data) && data.length > 0;
-
-    if ( !hasData ) return;
+    if ( !hasCountries ) return;
 
     const geoJson = {
       type: 'FeatureCollection',
-      features: data.map((country = {}) => {
+      features: countries.map((country = {}) => {
         const { countryInfo = {} } = country;
         const { lat, long: lng } = countryInfo;
         return {
